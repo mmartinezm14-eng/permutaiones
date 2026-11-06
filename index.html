@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Permutaciones</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Permutaciones</h1>
+  <p>Tema seleccionado: <strong>Permutaciones</strong> (lineal, circular y con repetición).</p>
+</header>
+
+<main>
+  <section aria-labelledby="t-calc">
+    <h2 id="t-calc">Calculadora</h2>
+
+    <label for="operacion">Operación</label>
+    <select id="operacion">
+      <option value="factorial">Permutación de n elementos: Pn = n!</option>
+      <option value="permSin" selected>Permutación lineal sin repetición: P(n, r)</option>
+      <option value="permCirc">Permutación circular: PC(n) = (n-1)!</option>
+      <option value="permRep">Permutación con repetición: n! / (n1! · n2! · …)</option>
+    </select>
+
+    <div class="fila" id="campos-nr">
+      <div>
+        <label for="n" id="lbl-n">n (total de elementos)</label>
+        <input id="n" type="number" min="0" step="1">
+      </div>
+      <div id="caja-r">
+        <label for="r" id="lbl-r">r (elementos tomados)</label>
+        <input id="r" type="number" min="0" step="1">
+      </div>
+    </div>
+
+    <div id="caja-grupos" class="hidden">
+      <label for="grupos">Repeticiones de cada elemento (separadas por coma)</label>
+      <input id="grupos" type="text" placeholder="Ejemplo: 4,4,2,1">
+      <p class="ayuda">MISSISSIPPI: M=1, I=4, S=4, P=2. Se escribe 1,4,4,2 (n se calcula como la suma).</p>
+    </div>
+
+    <button id="btn-calcular" type="button">Calcular</button>
+    <div id="resultado" role="status" aria-live="polite"></div>
+  </section>
+
+  <section aria-labelledby="t-test">
+    <h2 id="t-test">Casos de prueba</h2>
+    <p class="ayuda">Escribe tú mismo la operación, los datos de entrada y el resultado esperado. Al ejecutar, el programa calcula el resultado y lo compara con el esperado. Puedes editar cualquier caso o agregar más. Para permutación con repetición, escribe en r los grupos separados por coma (ejemplo: 1,4,4,2). Para un caso inválido, escribe ERROR como resultado esperado.</p>
+    <div style="overflow-x:auto">
+      <table id="tabla-pruebas">
+        <thead><tr><th>Operación</th><th>n</th><th>r (o grupos)</th><th>Esperado</th><th>Obtenido</th><th>Estado</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p id="resumen-pruebas"><strong></strong></p>
+    <button id="btn-pruebas" type="button">Ejecutar pruebas</button>
+    <button id="btn-agregar" type="button">Agregar caso</button>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
